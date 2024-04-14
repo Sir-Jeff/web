@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale=1>
+
+        <title>CourseIT Academy</title>
+        <link rel="stylesheet" href=" {% static "css/styles-base.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <section>
+            <input type="checkbox" id="check">
+            <header>
+                <nav class="navbar">
+                    <div class="navdiv">
+                        <div class="logo"><a href="{% url 'index' %}">CourseIT</a></div>
+
+                        <div class="navigation">
+                            <ul>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="{% url 'courses' %}">Courses</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="{% url 'about' %}">About</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="{% url 'sign-in' %}">Sign In</a></li>
+                            </ul>
+                            <ul>
+                                <a class="sign-up" href="{% url 'sign-up' %}">Get Started</a>
+                            </ul>
+                        </div>
+
+                        <label for="check">
+                            <i class="fas fa-bars menu-btn"></i>
+                            <i class="fas fa-times close-btn"></i>
+                        </label>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="content">
+
+                <h2 style="margin:20px 0; color: #226A80;">Contact Us</h2>
+
+                <p>We'd love to hear from you! Feel free to reach out to us with any questions, feedback, or inquiries.</p>
+                <p>You can contact us via email or phone:</p> <br>
+                <ul>
+                    <li>Email: <a href="mailto:globalcourseit@gmail.com">globalcourseit@gmail.com</a></li> <br>
+                    <li>Phone: +254-745678905</li> <br>
+                </ul><br>
+
+                <p class="p1"> Our vast collection of Computer Science materials caters to individuals at every stage of their learning journey. Whether you're just beginning to explore the realm of coding or you're a seasoned developer seeking advanced techniques, we have resources tailored to meet your needs.</p>
+
+                <h3 style="margin:20px 0;">Contact Form</h3>
+
+                <div class="container">
+                    <form action="/action_page.php">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                        <option value="australia">Kenya</option>
+                        </select>
+
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                
+                <div>
+                    <br>
+                    <p>Join our community today and embark on a journey of learning, growth, and endless possibilities. Together, we'll shape the future of technology and empower each other to reach new heights.</p>
+                </div>
+    
+            </div>
+
+            <footer>
+
+                <div class="footer-nav">
+
+                    <div>
+                        <nav>
+                            <a href="{% url 'index' %}">Home<span></span></a>
+                            <a href="{% url 'courses' %}">Courses<span></span></a>
+                            <a href="{% url 'about' %}">About<span></span></a>
+                            <a href="{% url 'contact' %}">Contacts<span></span></a>
+                        </nav>
+                    </div>
+
+                    <div class="media-icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+
+                    <div class="copyright-info" id="contact-us">
+                        <p>&copy; 2024 CourseIT. All rights reserved.</p>
+                    </div>
+
+                </div>
+            </footer>
+        </section>
+
+    </body>
+</html>

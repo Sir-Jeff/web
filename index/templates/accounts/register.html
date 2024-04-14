@@ -1,0 +1,178 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CourseIT - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #c2bdbd !important;
+        }
+
+        .user_card {
+            width: 90%; /* Adjust the width to 90% */
+            max-width: 400px; /* Limit maximum width for larger screens */
+            margin: auto;
+            background: #c2bdbd;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px; /* Increase padding for more space */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 10px;
+        }
+
+        #form-title {
+            color: #282525;
+            font-size: 24px; /* Increase title font size */
+            margin-bottom: 20px; /* Add some space below the title */
+            text-align: center; /* Center align the title */
+        }
+
+        .form_container {
+            margin-top: 20px;
+        }
+
+        .login_btn {
+            width: 100%;
+            background: #33ccff !important;
+            color: white !important;
+            font-size: 16px; /* Increase button font size */
+        }
+
+        .input-group-text {
+            background: #f7ba5b !important;
+            color: white !important;
+            border: 0 !important;
+            border-radius: 0.25rem 0 0 0.25rem !important;
+        }
+
+        .input_user,
+        .input_pass {
+            font-size: 16px; /* Increase input field font size */
+            padding: 10px; /* Increase input field padding */
+        }
+
+        #messages {
+            background-color: grey;
+            color: #fff;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px; /* Increase message font size */
+        }
+
+        .logo a {
+            font-size: 40px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+                <div class="logo d-flex justify-content-center"><a href="{% url 'index' %}">CourseIT</a></div>
+				<div class="d-flex justify-content-center">
+					<h3 id="form-title">Sign up</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+
+					<form method="POST" action="">
+                        {% csrf_token %}
+						
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<!-- <input type="text" name="username"> -->
+                            {{form.username}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							<!-- <input type="email" name="email"> -->
+                            {{form.email}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<!-- <input type="text" name="password1"> -->
+                            {{form.password1}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<!-- <input type="text" name="password2"> -->
+                            {{form.password2}}
+						</div>
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn login_btn" type="submit" value="Register Account">
+				   		</div>
+					</form>
+				</div>
+
+                {{form.errors}}
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Already have an account? <a href="{% url 'sign-in' %}" class="ml-2">Login</a>
+					</div>
+				</div>
+
+                <div class="footer-nav">
+
+                    <div>
+                        <nav class="d-flex justify-content-center links" style="margin: 10px auto;">
+                            <a href="{% url 'index' %}" style="text-decoration: none; margin-left: 5px;">Home<span></span></a>
+                            <a href="{% url 'courses' %}" style="text-decoration: none; margin-left: 5px;">Courses<span></span></a>
+                            <a href="{% url 'about' %}" style="text-decoration: none; margin-left: 5px;">About<span></span></a>
+                            <a href="{% url 'contact' %}" style="text-decoration: none; margin-left: 5px;">Contact<span></span></a>
+                        </nav>
+                    </div>
+    
+                    <div class="copyright-info d-flex justify-content-center links" style="margin: 10px auto;">
+                        <p>&copy; 2024 CourseIT. All rights reserved.</p>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<script>
+						/* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+		//We start indexing at one because CSRF_token is considered and input field 
+		 */
+
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Enter password...';
+		form_fields[4].placeholder='Re-enter Password...';
+
+
+		for (var field in form_fields){	
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+
+</body>
+</html>

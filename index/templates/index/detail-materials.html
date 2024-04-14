@@ -1,0 +1,144 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseIT Academy</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+    <body>
+        <input type="checkbox" id="check">
+        <div class="nav-bar">
+            <div class="header">
+                <div class="div1">
+                    <h2><a style="text-decoration: none;"href="{% url 'dashboard' %}">Dashboard</a> | <span style="font-size:15px;"> {{ course.title }} </span></h2>
+                </div>
+                <div>
+                    <nav>
+                        <a class="main-logout" href="">Hi, {{request.user}} <span></span></a>
+                        <a class="main-logout" href="{% url 'sign-out' %}">Logout<span></span></a>
+
+                        <label for="check">
+                            <i class="fas fa-bars menu-btn"></i>
+                        </label>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="content-div">
+            <div class="side-bar">
+                <div>
+                    <a href="{% url 'course_detail' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Overview</h1>
+                    </div></a>
+                    <a href="{% url 'progress' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>My Progress</h1>
+                    </div></a>
+                    <a href="{% url 'materials' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Materials</h1>
+                    </div></a>
+                    <a href="{% url 'community' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Community</h1>
+                    </div></a>
+                </div>
+            </div>
+
+            <div class="side-bar2">
+                <div>
+                    <a href="{% url 'course_detail' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Overview</h1>
+                    </div></a>
+                    <a href="{% url 'progress' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>My Progress</h1>
+                    </div></a>
+                    <a href="{% url 'materials' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Materials</h1>
+                    </div></a>
+                    <a href="{% url 'community' course.pk %}">
+                    <div class="side-bar-divs">
+                        <h1>Community</h1>
+                    </div></a>
+                    <a href="{% url 'sign-out' %}">
+                    <div class="side-bar-divs">
+                    <a class="side-logout" href="{% url 'sign-out' %}">Logout</a>
+                    </div></a>
+                </div>
+            </div>
+
+            <div class="cos-detail">
+                <div class="content">
+
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/kJOqIaGwQ7Y?si=IILueNhzSUZjmY6X">
+                    </iframe>
+        
+                </div>
+            </div>
+            <div class="more-info">
+
+                <div>
+                    <img src="{{ course.image.url }}" width="100%">
+                </div>
+
+                <div>
+                    <div class="more-info-divs">
+                        <h1>Weeks</h1>
+                        <h1>8</h1>
+                    </div>
+                    <div class="more-info-divs">
+                        <h1>Language</h1>
+                        <h1>English</h1>
+                    </div>
+                    <div class="more-info-divs">
+                        <h1>Skill Level</h1>
+                        <h1>Beginner</h1>
+                    </div>
+                    <div class="more-info-divs">
+                        <h1>Certificate</h1>
+                        <h1>Yes</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div>
+                <p>Join our community today and embark on a journey of learning, growth, and endless possibilities. Together, we'll shape the future of technology and empower each other to reach new heights.</p>
+            </div>
+
+            <div class="footer-nav">
+                <div>
+                    <nav>
+                        <a href="{% url 'index' %}">Home<span></span></a>
+                        <a href="{% url 'courses' %}">Courses<span></span></a>
+                        <a href="{% url 'about' %}">About<span></span></a>
+                        <a href="{% url 'contact' %}">Contacts<span></span></a>
+                    </nav>
+                </div>
+
+                <div class="media-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
+                <div class="copyright-info">
+                    <p>&copy; 2024 CourseIT. All rights reserved.</p>
+                </div>
+
+            </div>
+        </footer>
+    </body>
+</html>
